@@ -42,7 +42,7 @@ powershell -ExecutionPolicy Bypass -Command "irm https://astral.sh/uv/install.ps
 ## Setup
 
 ```bash
-git clone https://github.com/<your-username>/lvgl-thai-font-tool
+git clone https://github.com/LEKPCSTEAM/LVGL-Thai-Font-Tool.git
 cd lvgl-thai-font-tool
 uv sync
 ```

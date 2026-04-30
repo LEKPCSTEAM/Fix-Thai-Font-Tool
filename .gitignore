@@ -1,0 +1,14 @@
+# UV / Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Font output
+lvgl_fonts/
+*_fixed.ttf
+
+# OS
+.DS_Store
