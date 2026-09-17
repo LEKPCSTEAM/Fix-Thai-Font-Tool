@@ -1,12 +1,12 @@
-# lvgl-thai-font-tool
+# -thai-font-tool
 
-Fix Thai vowel stacking in TTF fonts and convert to LVGL `.c` for ESP32 — no shaping engine required.
+Fix Thai vowel stacking in TTF fonts and convert  `.c` for ESP32 — no shaping engine required.
 
 ## ปัญหา
 
-LVGL ไม่มี text shaping engine สำหรับภาษาไทย ทำให้วรรณยุกต์และสระซ้อนทับกัน เช่น **น้ำ เที่ยว ข้อ** แสดงผลผิด
+ ไม่มี text shaping engine สำหรับภาษาไทย ทำให้วรรณยุกต์และสระซ้อนทับกัน เช่น **น้ำ เที่ยว ข้อ** แสดงผลผิด
 
-Tool นี้แก้ปัญหาโดยเลื่อน Level-2 marks (วรรณยุกต์ / thanthakat / nikhahit) ขึ้นในตัว font โดยตรง ก่อน convert เป็น LVGL bitmap font
+Tool นี้แก้ปัญหาโดยเลื่อน Level-2 marks (วรรณยุกต์ / thanthakat / nikhahit) ขึ้นในตัว font โดยตรง ก่อน convert เป็น  bitmap font
 
 ### ตัวอย่างก่อน/หลัง
 
@@ -25,7 +25,7 @@ Base    → ก ข ค ...
 |------|---------|
 | Python ≥ 3.12 | [python.org](https://www.python.org) |
 | [uv](https://docs.astral.sh/uv/) | `brew install uv` |
-| [lv_font_conv](https://github.com/lvgl/lv_font_conv) | `npm install -g lv_font_conv` |
+| [lv_font_conv](https://github.com//lv_font_conv) | `npm install -g lv_font_conv` |
 
 ## Windows setup (เพิ่มเติม)
 
@@ -42,8 +42,8 @@ powershell -ExecutionPolicy Bypass -Command "irm https://astral.sh/uv/install.ps
 ## Setup
 
 ```bash
-git clone https://github.com/LEKPCSTEAM/LVGL-Thai-Font-Tool.git
-cd lvgl-thai-font-tool
+git clone https://github.com/LEKPCSTEAM/-Thai-Font-Tool.git
+cd -thai-font-tool
 uv sync
 ```
 
@@ -80,41 +80,41 @@ uv run fix-thai MyFont.ttf
 
 ```bash
 # กำหนด output path
-uv run fix-thai MyFont.ttf -o MyFont_lvgl.ttf
+uv run fix-thai MyFont.ttf -o MyFont_.ttf
 
 # ปรับค่า shift (default: 220 units บน UPM=1000)
 uv run fix-thai MyFont.ttf --shift 250
 ```
 
-### 3. แปลงเป็น LVGL `.c`
+### 3. แปลงเป็น  `.c`
 
 ```bash
-uv run to-lvgl MyFont_fixed.ttf
+uv run to- MyFont_fixed.ttf
 # output: ./output/myfont_fixed_20.c
 ```
 
 ```bash
 # หลายขนาดในครั้งเดียว
-uv run to-lvgl MyFont_fixed.ttf --size 16 20 24
+uv run to- MyFont_fixed.ttf --size 16 20 24
 
 # เปลี่ยน output folder
-uv run to-lvgl MyFont_fixed.ttf --size 20 --output-dir ./output
+uv run to- MyFont_fixed.ttf --size 20 --output-dir ./output
 
 # เฉพาะ Latin หรือ Thai
-uv run to-lvgl MyFont_fixed.ttf --latin-only
-uv run to-lvgl MyFont_fixed.ttf --thai-only
+uv run to- MyFont_fixed.ttf --latin-only
+uv run to- MyFont_fixed.ttf --thai-only
 
 # ลด anti-aliasing (ประหยัด Flash)
-uv run to-lvgl MyFont_fixed.ttf --bpp 2
+uv run to- MyFont_fixed.ttf --bpp 2
 ```
 
 ### ทำในขั้นเดียว
 
 ```bash
-uv run fix-thai MyFont.ttf && uv run to-lvgl MyFont_fixed.ttf --size 16 20 24
+uv run fix-thai MyFont.ttf && uv run to- MyFont_fixed.ttf --size 16 20 24
 ```
 
-## ใช้ใน LVGL (ESP32)
+## ใช้ใน  (ESP32)
 
 คัดลอกไฟล์ `.c` เข้า project แล้วใช้งาน:
 
